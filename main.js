@@ -54,4 +54,8 @@ const bs = new BattleScene(battleSences[sceneIndex], units, weapons);
 
 //console.log(bs);
 
-bs.render({showTargetAttackRangesAlongMovementPaths: true});
+bs.render({
+  showTargetAttackRangesAlongMovementPaths: true, 
+  showTargetAllEnemiesAttackRanges: true, 
+  showTargetUnitMoveRange: true
+});

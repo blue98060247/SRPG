@@ -212,7 +212,7 @@ export default class TileMap {
         }
         // 所有攻擊範圍 不考慮範圍內是否包含單位 劣於目標移動範圍
         else if (showTargetAttackRangesAlongMovementPaths && allAtkRangeSet.has(key)) {
-          style = style.bgRed;
+          style = style.bgHex('#AE0000');
           //line += chalk.bgRed(cell) + ' ';
         }
         // 敵對勢力的可攻擊範圍 不考慮範圍內是否包含單位 所有攻擊範圍
