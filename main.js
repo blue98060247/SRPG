@@ -42,6 +42,8 @@ function loadWeapons(){
   return weapons;
 }
 
+function playerInput(){}
+
 const units = loadUnits();
 const weapons = loadWeapons();
 const battleSences = loadBattleScenes();
@@ -59,3 +61,39 @@ bs.render({
   showTargetAllEnemiesAttackRanges: true, 
   showTargetUnitMoveRange: true
 });
+
+const factionsOrder = bs.getOrderedFactions();
+
+async function gameLoop() {
+  while (!gameOver) {
+    const factionId = factionsOrder[currentIdx];
+    const faction = bs.factions.get(factionId);
+
+    // 告知 BattleScene 開始這個陣營的回合
+    battle.startTurn(faction);
+
+    if (factionId === 'player') {
+      // 玩家控制：等待使用者一系列操作（移動、攻擊…）
+      // 你可以透過事件監聽來呼叫 battle.playerAction(...)
+      await waitForPlayerActions(battle);
+    } else {
+      // AI 控制：一次性跑完這個陣營所有單位的行為
+      battle.executeAiTurn(faction);
+    }
+
+    // 回合後檢查勝負
+    if (battle.isVictory() || battle.isDefeat()) {
+      gameOver = true;
+      break;
+    }
+
+    // 畫面更新
+    battle.render();
+
+    // 換下一個陣營
+    currentIdx = (currentIdx + 1) % factionOrder.length;
+  }
+
+  // 跳出迴圈後顯示結果
+  battle.showResult();
+}

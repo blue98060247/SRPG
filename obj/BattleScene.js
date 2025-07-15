@@ -109,6 +109,19 @@ export default class BattleScene {
     });
   }
 
+  /**
+   * Get factions in ordered sequence: primary by faction.order if defined, secondary by insertion order
+   * @returns {Faction[]}
+   */
+  getOrderedFactions() {
+    const all = Array.from(this.factions.values());
+    const withOrder = all
+      .filter(f => typeof f.order === 'number')
+      .sort((a, b) => a.order - b.order);
+    const withoutOrder = all.filter(f => typeof f.order !== 'number');
+    return [...withOrder, ...withoutOrder];
+  }
+
   nextStep() {
 
   }
