@@ -1,0 +1,7 @@
+{ 
+  "id": "sword", 
+  "name": "Sword", 
+  "range": 1, 
+  "deadZone": 0, 
+  "power": 5
+}

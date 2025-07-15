@@ -1,0 +1,7 @@
+{
+  "id": "bandit01",
+  "name": "bandit01",
+  "moveRange": 3,
+  "power": 5, 
+  "hp_max": 20
+}

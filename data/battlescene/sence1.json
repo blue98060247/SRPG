@@ -1,0 +1,50 @@
+{
+  "id": "sence1",
+  "map": {
+    "x": 10,
+    "y": 10
+  },
+  "units": [
+    {
+      "x": 2,
+      "y": 2,
+      "id": "Resia",
+      "factions": "player",
+      "weapon": [
+        "sword"
+      ]
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "id": "bandit01",
+      "factions": "bandit",
+      "weapon": [
+        "axe"
+      ]
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "id": "bandit02",
+      "factions": "bandit",
+      "weapon": [
+        "axe"
+      ]
+    }
+  ],
+  "factionsConfig": [
+    {
+      "id": "player",
+      "name": "玩家",
+      "hostileTo": ["bandit"],
+      "color": "blue"
+    },
+    {
+      "id": "bandit",
+      "name": "強盜",
+      "hostileTo": ["player"],
+      "color": "red"
+    }
+  ]
+}

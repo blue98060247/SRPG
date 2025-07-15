@@ -1,0 +1,7 @@
+{ 
+  "id": "lance", 
+  "name": "Lance", 
+  "range": 1.5, 
+  "deadZone": 0, 
+  "power": 4
+}
